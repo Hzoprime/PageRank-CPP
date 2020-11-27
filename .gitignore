@@ -1,0 +1,8 @@
+*.out
+*.o
+*.tmp
+*.gch
+asset
+.vscode
+*.exe
+.DS_Store
