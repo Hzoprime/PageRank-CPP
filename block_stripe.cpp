@@ -42,7 +42,8 @@ int block_strip()
     vector<vector<double>>
         old_v(block_number, vector<double>(block_size, 1.0 / node_number)),
         new_v(block_number, vector<double>(block_size, 1.0 / node_number)),
-        base(block_number, vector<double>(block_size, (1.0 - teleport_parameter) / node_number));
+        // base(block_number, vector<double>(block_size, (1.0 - teleport_parameter) / node_number));
+        base(block_number, vector<double>(block_size, 0));
     cout << "begin" << endl;
 
     for (size_t i = 0; i < block_number; i++)
@@ -58,8 +59,9 @@ int block_strip()
     }
 
     double current_delta = 1.0;
-
-    while (current_delta >= epsilon)
+    double last_delta = 1.0;
+    double s = 0;
+    while (current_delta >= 1e-9)
     {
         old_v = new_v;
 
@@ -74,7 +76,26 @@ int block_strip()
                 }
             }
         }
+
+        s = accumulate(new_v.begin(), new_v.end(), 0.0, [](const double &last_result, vector<double> &next_v) {
+            return last_result + accumulate(next_v.begin(), next_v.end(), 0.0);
+        });
+
+        s = (1.0 - s) / node_number;
+
+        for (int i = 0; i < block_number; i++)
+        {
+            for (int j = 0; j < block_size; j++)
+            {
+                if (i * block_size + j >= node_number)
+                {
+                    break;
+                }
+                new_v[i][j] += s;
+            }
+        }
         current_delta = norm2(old_v, new_v);
+        cout << current_delta << endl;
     }
     write_result(new_v, matrix2file, teleport_parameter);
     cout << "in block strip" << endl;

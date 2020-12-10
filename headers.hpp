@@ -50,3 +50,5 @@ using std::transform;
 using std::unordered_map;
 using std::vector;
 using std::strcmp;
+using std::accumulate;
+using std::transform;

@@ -29,6 +29,7 @@ int dense_dynamic()
     while (current_delta > epsilon)
     {
         new_v *= transform_matrix;
+        base.setConstant((1.0 - new_v.sum()) / node_number);
         new_v += base;
         current_delta = (new_v - old_v).norm();
         old_v = new_v;
