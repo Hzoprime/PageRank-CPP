@@ -61,7 +61,7 @@ int block_strip()
     double current_delta = 1.0;
     double last_delta = 1.0;
     double s = 0;
-    while (current_delta >= 1e-9)
+    while (current_delta >= epsilon)
     {
         old_v = new_v;
 

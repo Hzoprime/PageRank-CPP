@@ -1,5 +1,6 @@
 .PHONY: clean run clean_intermediate
 task = dense
+teleport = 0.85
 
 intermediate = *.gch *.o *.tmp
 cc = g++ -std=c++17 -O3

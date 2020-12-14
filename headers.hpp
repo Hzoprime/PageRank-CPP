@@ -20,7 +20,8 @@
 #include <iomanip>
 #include <cstring>
 
-const double epsilon = std::numeric_limits<double>::epsilon();
+// const double epsilon = std::numeric_limits<double>::epsilon();
+const double epsilon = 1e-8;
 using Eigen::ColMajor;
 using Eigen::Dense;
 using Eigen::Dynamic;
