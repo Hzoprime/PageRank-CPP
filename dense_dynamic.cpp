@@ -4,7 +4,7 @@
 
 #include "dense_dynamic.hpp"
 
-int dense_dynamic()
+int dense_dynamic(double teleport_parameter = 0.85)
 {
     unordered_map<int, int> file2matrix, matrix2file;
     get_node_map(file2matrix, matrix2file);
@@ -13,10 +13,6 @@ int dense_dynamic()
     Matrix<double, Dynamic, Dynamic> adjacency_matrix(node_number, node_number);
     adjacency_matrix.setZero();
     read_into_matrix(adjacency_matrix, file2matrix);
-
-    Matrix<double, Dynamic, Dynamic> teleport_matrix(node_number, node_number);
-    teleport_matrix.setConstant(1.0 / node_number);
-    double teleport_parameter = 0.85;
 
     Matrix<double, Dynamic, Dynamic> transform_matrix = teleport_parameter * adjacency_matrix;
 

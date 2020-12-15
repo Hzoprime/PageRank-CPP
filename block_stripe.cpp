@@ -17,7 +17,7 @@ double norm2(vector<vector<double>> &old_v, vector<vector<double>> &new_v)
     return sqrt(total);
 }
 
-int block_strip()
+int block_strip(double teleport_parameter = 0.85)
 {
     unordered_map<int, int> file2matrix, matrix2file;
     get_node_map(file2matrix, matrix2file);
@@ -37,7 +37,6 @@ int block_strip()
         block[i.second / block_size][i.second % block_size].insert(i.first);
     }
 
-    double teleport_parameter = 0.85;
 
     vector<vector<double>>
         old_v(block_number, vector<double>(block_size, 1.0 / node_number)),
