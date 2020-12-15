@@ -62,7 +62,6 @@ int block_strip(double teleport_parameter = 0.85)
     while (current_delta >= epsilon)
     {
         old_v = new_v;
-
         new_v = base;
         for (int i = 0; i < block_number; i++)
         {
@@ -74,11 +73,9 @@ int block_strip(double teleport_parameter = 0.85)
                 }
             }
         }
-
         s = accumulate(new_v.begin(), new_v.end(), 0.0, [](const double &last_result, vector<double> &next_v) {
             return last_result + accumulate(next_v.begin(), next_v.end(), 0.0);
         });
-
         s = (1.0 - s) / node_number;
 
         for (int i = 0; i < block_number; i++)
