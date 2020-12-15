@@ -57,7 +57,6 @@ int block_strip(double teleport_parameter = 0.85)
     }
 
     double current_delta = 1.0;
-    double last_delta = 1.0;
     double s = 0;
     while (current_delta >= epsilon)
     {
