@@ -41,7 +41,6 @@ int block_strip(double teleport_parameter = 0.85)
     vector<vector<double>>
         old_v(block_number, vector<double>(block_size, 1.0 / node_number)),
         new_v(block_number, vector<double>(block_size, 1.0 / node_number)),
-        // base(block_number, vector<double>(block_size, (1.0 - teleport_parameter) / node_number));
         base(block_number, vector<double>(block_size, 0));
     cout << "begin" << endl;
 
