@@ -9,7 +9,7 @@ main = main.o
 executable = pagerank.exe
 
 run: $(object) $(main) execute
-	./$(executable) $(task)
+	./$(executable) $(task) $(teleport)
 
 %.o : %.cpp
 	$(cc) -c $<
@@ -18,10 +18,10 @@ execute :
 	$(cc) *.o -o $(executable)
 
 dense: $(object) $(main) execute
-	./$(executable) dense
+	./$(executable) dense $(teleport)
 
 block: $(object) $(main) execute
-	./$(executable) block
+	./$(executable) block $(teleport)
 
 clean_intermediate:
 	rm -rf $(intermediate)

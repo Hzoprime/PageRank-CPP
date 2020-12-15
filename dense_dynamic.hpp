@@ -6,5 +6,5 @@
 #include "headers.hpp"
 #include "io.hpp"
 
-int dense_dynamic(double teleport_parameter = 0.85);
+int dense_dynamic(double teleport_parameter);
 

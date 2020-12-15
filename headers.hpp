@@ -19,6 +19,7 @@
 #include <eigen3/Eigen/Eigenvalues>
 #include <iomanip>
 #include <cstring>
+#include <sstream>
 
 // const double epsilon = std::numeric_limits<double>::epsilon();
 const double epsilon = 1e-8;
@@ -53,3 +54,4 @@ using std::vector;
 using std::strcmp;
 using std::accumulate;
 using std::transform;
+using std::stringstream;
